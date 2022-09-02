@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: store-persistent-volume
+spec:
+  storageClassName: hostpath
+  capacity:
+    storage: 3Gi
+  accessModes:
+  - ReadWriteOnce
+  hostPath:
+    path: "/data"
+
+---
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: store-persistent-volume-claim
+spec:
+ storageClassName: hostpath
+ accessModes:
+ - ReadWriteOnce
+ resources:
+  requests:
+    storage: 1Gi
+
+ 
